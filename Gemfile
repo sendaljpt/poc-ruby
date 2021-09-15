@@ -39,3 +39,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # https://github.com/jwt/ruby-jwt
 gem 'jwt'
+
+gem 'ruby-debug-ide', '0.7.2'
+gem 'debase'
