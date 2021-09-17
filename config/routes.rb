@@ -17,4 +17,7 @@ Rails.application.routes.draw do
   # cart
   post 'cart', action: :addCart, controller: :cart
   get 'cart', action: :getCart, controller: :cart
+
+  # order
+  post 'order', action: :createOrder, controller: :order
 end

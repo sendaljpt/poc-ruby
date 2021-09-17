@@ -54,7 +54,6 @@ class CartController < ApplicationController
             else
                 data.each do |dt|
                     if dt[:store_id] == itemData[:store_id]
-                        puts "ada nih"
                         puts dt[:product][0][:product_id]
                         dt[:product].each do |pr|
                             if pr[:product_id] == itemData[:product][0][:product_id]
@@ -76,7 +75,13 @@ class CartController < ApplicationController
             end
         end
 
-        render json: {message: "Success add to cart", data: data}, status: :ok
+        res = {
+            "cart_id": cart.id,
+            "status": cart.status,
+            "item": data
+        }
+
+        render json: {message: "Success get cart", data: res}, status: :ok
 
     end
 

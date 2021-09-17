@@ -7,7 +7,7 @@ class UserController < ApplicationController
         user = User.new(userparams)
 
         if user.save()
-            render json: user, status: :ok
+            render json: {message: 'Success register!', data: user}, status: :ok
         else
             render json: {message: "Failed add user", error: user.errors}, status: :unprocessable_entity 
         end 
@@ -42,7 +42,7 @@ class UserController < ApplicationController
     def allUser
         user = User.all
         if user
-            render json: user, status: :ok
+            render json: {message: 'Success get user', data: user}, status: :ok
         else 
             render json: {message: "Failed get user"}, status: :unprocessable_entity
         end
@@ -50,7 +50,7 @@ class UserController < ApplicationController
 
     def showUser
         if @user
-            render json: @user, status: :ok
+            render json: {message: "Success get user", data: @user}, status: :ok
         else
             render json: {message: "User not found", error: @user.errors}, status: :unprocessable_entity
         end
@@ -60,7 +60,7 @@ class UserController < ApplicationController
     def updateUser
         if @user
             if @user.update(userparams)
-                render json: @user, status: :ok
+                render json: {message: 'Success update user', data: @user}, status: :ok
             else
                 render json: {message: "Failed update user"}, status: :unprocessable_entity
             end
